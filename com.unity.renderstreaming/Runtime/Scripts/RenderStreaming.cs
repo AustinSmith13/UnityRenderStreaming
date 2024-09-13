@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using UnityEngine;
 using Object = UnityEngine.Object;
+using UnityLogger = UnityEngine.ILogger;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -20,7 +21,7 @@ namespace Unity.RenderStreaming
 
         private static RenderStreamingSettings s_settings;
         private static GameObject s_automaticStreamingObject;
-        private static ILogger s_logger;
+        private static UnityLogger s_logger;
 
         private static bool m_running;
 
@@ -78,7 +79,7 @@ namespace Unity.RenderStreaming
         /// By default will use Debug.unityLogger.
         /// </summary>
         /// <exception cref="ArgumentNullException">Throws if setting a null logger.</exception>
-        public static ILogger Logger
+        public static UnityLogger Logger
         {
             get
             {
